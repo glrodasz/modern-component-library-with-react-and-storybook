@@ -1,0 +1,11 @@
+{
+  "name": "modern-component-library-with-react-and-storybook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Guillermo Rodas <me@guillermorodas.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

@@ -1,6 +1,7 @@
-import 'minireset.css'
-import '../styles/global.css'
-import '../styles/tokens.css'
+import "minireset.css";
+import { disableGlobalArgTypes } from "../helpers/storybook";
+import "../styles/global.css";
+import "../styles/tokens.css";
 
 const styles = {
   display: "flex",
@@ -11,15 +12,16 @@ const styles = {
   flexWrap: "wrap",
   height: "100%",
   gap: "10px 30px",
-}
+};
 
 export const decorators = [
-  (Story) => (
-    <div style={styles}>
-      <Story />
-    </div>
-  )
-]
+  (Story, { parameters }) =>
+    disableGlobalArgTypes(parameters)("getStyles") || (
+      <div style={styles}>
+        <Story />
+      </div>
+    ),
+];
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -29,4 +31,4 @@ export const parameters = {
       date: /Date$/,
     },
   },
-}
+};

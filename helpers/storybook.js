@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { parameters } from "../.storybook/preview";
 import { getClasses } from "./styles";
 
 export const getTemplate = (Component, styles) => (args) => {
@@ -31,3 +32,11 @@ export const getOptionsArgTypes = (options) => ({
   },
   control: { type: "select", options },
 });
+
+export const disableGlobalArgTypes = (parameters) => (...args) => {
+  args.forEach(arg => {
+    parameters.argTypes[arg].table = {
+      disable: true
+    }
+  })
+}

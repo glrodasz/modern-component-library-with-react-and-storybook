@@ -6,18 +6,16 @@ import classNames from "classnames";
 import styles from "./Card.module.css";
 import { getClasses } from "../../helpers/styles";
 
+import withStyles from "../../hoc/withStyles";
+
 export const Card = ({
+  getStyles,
   children,
   color = "primary",
   size = "sm",
   isClickable,
   isDraggable,
 }) => {
-  const getStyles = getClasses(styles)({
-    color,
-    size,
-  });
-
   return (
     <div
       className={getStyles("card", ["color", "size"], {
@@ -31,6 +29,7 @@ export const Card = ({
 };
 
 Card.propTypes = {
+  getStyles: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
   color: PropTypes.oneOf(options.colors),
   size: PropTypes.oneOf(options.sizes),
@@ -38,4 +37,4 @@ Card.propTypes = {
   isDraggable: PropTypes.bool,
 };
 
-export default Card;
+export default withStyles(styles)(Card);

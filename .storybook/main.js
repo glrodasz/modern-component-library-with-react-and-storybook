@@ -1,3 +1,5 @@
+const cssModules = require("../config/cssModules")
+
 module.exports = {
   "stories": [
     "../stories/**/*.stories.mdx",
@@ -8,5 +10,6 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions"
   ],
-  "framework": "@storybook/react"
+  "framework": "@storybook/react",
+  webpackFinal: cssModules()
 }

@@ -8,14 +8,7 @@ import { getClasses } from "../../helpers/styles";
 
 import withStyles from "../../hoc/withStyles";
 
-export const Card = ({
-  getStyles,
-  children,
-  color = "primary",
-  size = "sm",
-  isClickable,
-  isDraggable,
-}) => {
+export const Card = ({ getStyles, children, isClickable, isDraggable }) => {
   return (
     <div
       className={getStyles("card", ["color", "size"], {
@@ -35,6 +28,11 @@ Card.propTypes = {
   size: PropTypes.oneOf(options.sizes),
   isClickable: PropTypes.bool,
   isDraggable: PropTypes.bool,
+};
+
+Card.defaultProps = {
+  color: "primary",
+  size: "sm",
 };
 
 export default withStyles(styles)(Card);

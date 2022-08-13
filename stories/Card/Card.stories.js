@@ -1,3 +1,4 @@
+import { parameters } from "../../.storybook/preview";
 import { getListTemplate, getOptionsArgTypes, getTemplate } from "../../helpers/storybook";
 import { Card } from "./Card";
 import styles from './Card.module.css'
